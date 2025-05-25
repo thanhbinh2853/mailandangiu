@@ -3,37 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Trang web dành cho eiu</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fff0f5;
+        }
+
+        h1 {
+            color: #ff1493;
+            margin-top: 50px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        @keyframes fly {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-300px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            animation: fly 3s linear forwards;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
     <h1>hello MaiLan ❤️❤️❤️ !</h1>
     <p>Trang web của mailan đã xong.</p>
-    <button onclick="alert('MaiLan xinh đẹp dễ thương sẽ thi sốt')">Bấm vào đây</button>
-    <audio autoplay loop>
-      <source src="mailan.mp3" type="audio/mpeg">
-      Trình duyệt của Bệ hạ không hỗ trợ phát nhạc.
-    </audio>
+
     <script>
-document.querySelector("button").addEventListener("click", function() {
-    alert("MaiLan xinh đẹp sẽ thi tốt");
+        function getRandomColor() {
+            const colors = ["#ff1493", "#ff69b4", "#ff4500", "#ff6347", "#db7093", "#ff00ff", "#ffb6c1"];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
 
-    // Tạo trái tim
-    const heart = document.createElement("div");
-    heart.innerText = "❤";
-    heart.style.position = "absolute";
-    heart.style.left = Math.random() * window.innerWidth + "px";
-    heart.style.top = Math.random() * window.innerHeight + "px";
-    heart.style.fontSize = "30px";
-    heart.style.color = "#ff1493";
-    heart.style.animation = "fly 2s linear";
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerText = "❤";
+            heart.style.color = getRandomColor();
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.top = (window.innerHeight - 30) + "px";
 
-    document.body.appendChild(heart);
+            document.body.appendChild(heart);
 
-    // Xóa sau 2 giây
-    setTimeout(() => heart.remove(), 2000);
-});
-</script>
+            setTimeout(() => heart.remove(), 3000);
+        }
 
-    <script src="script.js"></script>
+        // Tạo trái tim mỗi 200ms
+        setInterval(createHeart, 200);
+    </script>
 </body>
-</html>s
+</html>
