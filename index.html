@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang web dành cho eiu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>hello MaiLan ❤️❤️❤️ !</h1>
+    <p>Trang web của mailan đã xong.</p>
+    <button onclick="alert('MaiLan xinh đẹp dễ thương sẽ thi sốt')">Bấm vào đây</button>
+    <audio autoplay loop>
+      <source src="mailan.mp3" type="audio/mpeg">
+      Trình duyệt của Bệ hạ không hỗ trợ phát nhạc.
+    </audio>
+    <script>
+document.querySelector("button").addEventListener("click", function() {
+    alert("MaiLan xinh đẹp sẽ thi tốt");
+
+    // Tạo trái tim
+    const heart = document.createElement("div");
+    heart.innerText = "❤";
+    heart.style.position = "absolute";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.top = Math.random() * window.innerHeight + "px";
+    heart.style.fontSize = "30px";
+    heart.style.color = "#ff1493";
+    heart.style.animation = "fly 2s linear";
+
+    document.body.appendChild(heart);
+
+    // Xóa sau 2 giây
+    setTimeout(() => heart.remove(), 2000);
+});
+</script>
+
+    <script src="script.js"></script>
+</body>
+</html>s
